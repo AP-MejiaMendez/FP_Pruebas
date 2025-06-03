@@ -19,13 +19,13 @@ int main() {
         "(^_^)"
     };
 
-    while (true) {
+    /*while (true) {
         for (auto frame : frames) {
             clearScreen();
             std::cout << frame << std::endl;
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
         }
-    }
+    }*/
 
     return 0;
 }
