@@ -1,0 +1,3 @@
+[Volver al índice](../../../README.md)
+
+Conjunto de funciones y recursos reutilizables que puedes usar en tus programas sin tener que escribir todo desde cero. Se llama librería porque, igual que una biblioteca (library en inglés) guarda libros que puedes consultar, una librería de programación guarda código ya escrito que puedes usar cuando lo necesites. Es una colección organizada de funciones, clases o recursos, lista para "consultar" o reutilizar en tus programas.
