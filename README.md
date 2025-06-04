@@ -1,5 +1,3 @@
-<h1 align="center">FP - Pruebas</h1> <br>
-
 # Documentación
 
 **Nomenclatura**
@@ -36,6 +34,8 @@
 
 - [¿Por qué C++ no usa .h en algunas librerías?](./Z_Invst/Esquizofrenia/hEnAlgunas.md)
 - [Headers y librerias diferencias](./Z_Invst/Esquizofrenia/headersLibrerias.md)
+
+---
 
 ## Recursos útiles
 
