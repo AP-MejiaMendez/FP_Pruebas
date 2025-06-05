@@ -3,38 +3,87 @@
 #include <iostream>
 #include <windows.h>
 
+// Nota: No usar 'using namespace std;' en headers
+
 class Console
 {
 private:
-    int width;
-    int height;
+    int fontW, fontH;
+
+protected:
+    int width;  // Ancho de consola
+    int height; // Alto de consola
+
+    HANDLE hConsoleOUT;      // Handle para las salidas
+    HANDLE hConsoleIN;       // Handle para las entradas
+    HANDLE hOriginalConsole; // Handle para estado original
+
+    short entradaNueva[256] = {0};
+    short entradaVieja[256] = {0};
+
+    struct estadoEntradas // Acciones de las entradas
+    {
+        bool presionado;
+        bool liberado;
+        bool sostenido;
+    } entradas[256], mouse[5];
+
+    int mouseXPstn; // Posicion x del mouse
+    int mouseYPstn; // Posicion Y del mouse
+
+    std::string appName; // Nombre de la ventana?
 
 public:
-    //* Constructores
-    Console(int w = 100, int h = 40) : width(w), height(h) {}
-
-    void setConfigC()
+    // Constructor
+    Console(int w = 100, int h = 40, int fW = 12, int fH = 12)
+        : width(w), height(h), fontW(fW), fontH(fH),
+        hConsoleOUT(nullptr), hConsoleIN(nullptr), hOriginalConsole(nullptr),
+        mouseXPstn(0), mouseYPstn(0), appName("Default")
     {
-        // Crear una nueva consola
-        AllocConsole();
+        // Inicializar arrays estadoEntradas a false
+        memset(entradas, 0, sizeof(entradas));
+        memset(mouse, 0, sizeof(mouse));
+    }
 
-        // Redirigir entrada y salida estándar
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONIN$", "r", stdin);
+    //TODO invesitgar bien este pedazo
+    int Error(const wchar_t *msg)
+    {
+        wchar_t buf[256];
+        FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(),
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), buf, 256, NULL);
+        if (hOriginalConsole)
+            SetConsoleActiveScreenBuffer(hOriginalConsole);
+        std::wcerr << L"ERROR: " << msg << L"\n\t" << buf << std::endl;
+        return 0;
+    }
 
-        // Obtener handle
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    void declareConfig()
+    {
+        hConsoleOUT = GetStdHandle(STD_OUTPUT_HANDLE);
+        hConsoleIN = GetStdHandle(STD_INPUT_HANDLE);
+        hOriginalConsole = hConsoleOUT; // Handle original
 
-        // Ajustar tamaño del búfer
-        COORD bufferSize = {static_cast<SHORT>(width), static_cast<SHORT>(height)};
-        SetConsoleScreenBufferSize(hConsole, bufferSize);
+        memset(entradaNueva, 0, sizeof(entradaNueva));
+        memset(entradaVieja, 0, sizeof(entradaVieja));
+        memset(entradas, 0, sizeof(entradas));
+        memset(mouse, 0, sizeof(mouse));
 
-        // Ajustar ventana visible
-        SMALL_RECT windowSize = {0, 0, static_cast<SHORT>(width - 1), static_cast<SHORT>(height - 1)};
-        SetConsoleWindowInfo(hConsole, TRUE, &windowSize);
+        mouseXPstn = 0;
+        mouseYPstn = 0;
 
-        // Mostrar mensaje
-        std::cout << "Consola configurada: " << width << " x " << height << "\n";
-        std::cin.get(); // Esperar entrada
+        appName = "Default";
+    }
+
+    bool setConfigC()
+    {
+        declareConfig();
+        if (hConsoleOUT == INVALID_HANDLE_VALUE)
+        {
+            Error(L"Bad Handle");
+            return false;
+        }
+
+    
+        return true;
     }
 };

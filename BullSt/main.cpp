@@ -21,7 +21,8 @@ using namespace std;
 
 void mainCalls()
 {
-    Console consola;
+    //Ancho, Alto
+    Console consola(100, 100);
     consola.setConfigC();
 }
 

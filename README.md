@@ -33,6 +33,9 @@
   - [Habilitad UNICODE?](./Z_Invst/Glosario/Avanzado/HabilitarUnicode.md)
   - [Constructor?](./Z_Invst/Glosario/Avanzado/Constructor.md)
   - [Como mando a llamar?](./Z_Invst/Glosario/Avanzado/IngresarMetodos.md)
+  - [protected?](./Z_Invst/Glosario/Avanzado/protected.md)
+  - [GetStdHandle](./Z_Invst/Glosario/Avanzado/GetStdHandle.md)
+  - [Buffer](./Z_Invst/Glosario/Avanzado/Buffer.md)
 
 ### Esquizofrenia
 
