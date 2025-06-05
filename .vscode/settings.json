@@ -18,5 +18,10 @@
         "titleBar.inactiveBackground": "#2b003a99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#2B003A"
+    "peacock.color": "#2B003A",
+    "files.associations": {
+        "condition_variable": "cpp",
+        "vector": "cpp",
+        "chrono": "cpp"
+    }
 }

@@ -27,8 +27,12 @@
   - [SDK](./Z_Invst/Glosario/Avanzado/SDK.md)
   - [STDL](./Z_Invst/Glosario/Avanzado/STDL.md)
   - [IncludeGuard](./Z_Invst/Glosario/Avanzado/IncludeGuard.md)
+  - [Mejor que Include Guard](./Z_Invst/Glosario/Avanzado/PragmaOnce.md)
   - [Typedef struct](./Z_Invst/Glosario/Avanzado/typedef_struct.md)
   - [Declaración de funciones](./Z_Invst/Glosario/Avanzado/Funciones.md)
+  - [Habilitad UNICODE?](./Z_Invst/Glosario/Avanzado/HabilitarUnicode.md)
+  - [Constructor?](./Z_Invst/Glosario/Avanzado/Constructor.md)
+  - [Como mando a llamar?](./Z_Invst/Glosario/Avanzado/IngresarMetodos.md)
 
 ### Esquizofrenia
 
@@ -40,3 +44,6 @@
 ## Recursos útiles
 
 - [Documentación de winbase.h (Windows API)](https://learn.microsoft.com/en-us/windows/win32/api/winbase/) – Referencia oficial de Microsoft para funciones definidas en `winbase.h`, parte del SDK de Windows para desarrollo nativo.
+
+## PENDIENTE
+Repasar bien lo de clases y estructuras. POO
