@@ -13,28 +13,6 @@ public:
     const int viewW = 40;
     const int viewH = mapH;
 
-    void clearScreen()
-    {
-        COORD coord = {0, 0};
-        SetConsoleCursorPosition(hConsoleOUT, coord);
-    }
-    void ajustarVentana()
-    {
-        SHORT left = std::max(0, playerX - consoleW / 2);
-        if (left + consoleW > bufferW)
-            left = bufferW - consoleW;
-
-        SHORT top = 0; // Si solo quieres scroll horizontal, esto se mantiene en 0
-
-        SMALL_RECT newWindow = {
-            left,
-            top,
-            (SHORT)(left + consoleW - 1),
-            (SHORT)(top + consoleH - 1)};
-
-        SetConsoleWindowInfo(hConsoleOUT, TRUE, &newWindow);
-    }
-
     void draw()
     {
         system("cls");
@@ -58,8 +36,6 @@ public:
             }
             std::cout << "\n";
         }
-
-        ajustarVentana();
     }
 
 public:
