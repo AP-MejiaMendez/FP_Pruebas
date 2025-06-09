@@ -48,5 +48,10 @@
 
 - [Documentación de winbase.h (Windows API)](https://learn.microsoft.com/en-us/windows/win32/api/winbase/) – Referencia oficial de Microsoft para funciones definidas en `winbase.h`, parte del SDK de Windows para desarrollo nativo.
 
+
 ## PENDIENTE
+
 Repasar bien lo de clases y estructuras. POO
+
+## ojo
+g++ main.cpp -o main.exe -mwindows 
