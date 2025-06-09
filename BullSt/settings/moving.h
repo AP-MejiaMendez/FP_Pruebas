@@ -3,9 +3,6 @@
 #include "print.h"
 #include <windows.h>
 #include <iostream>
-#include <cstdio>
-#include <conio.h>
-#include <wchar.h>
 
 class Moving : public Print
 {

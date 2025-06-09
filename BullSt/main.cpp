@@ -14,7 +14,7 @@ using namespace std;
 
 void mainCalls()
 {
-    Console C(50, 25, 60, 25); // Moving hereda todo de Console, Maping, Player
+    Console C(50, 25, 90, 25); // Moving hereda todo de Console, Maping, Player
     Moving M;
     C.configConsole();
     C.setTitle(L"LA TORRE DE LEUGIM");
