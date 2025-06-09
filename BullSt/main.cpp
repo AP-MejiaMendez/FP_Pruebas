@@ -14,11 +14,11 @@ using namespace std;
 
 void mainCalls()
 {
-    Console C(50, 25, 90, 25); // Moving hereda todo de Console, Maping, Player
+    Console C(41, 22, 41, 22); // Moving hereda todo de Console, Maping, Player
     Moving M;
     C.configConsole();
     C.setTitle(L"LA TORRE DE LEUGIM");
-    M.draw();
+    M.drawMainMap();
 
     while (true)
     {
@@ -27,7 +27,14 @@ void mainCalls()
             break;
 
         M.mover(tecla);
-        M.draw();
+        if (M.identifier == 2)
+        {
+            M.drawMap2();
+        }
+        else
+        {
+            M.drawMainMap();
+        }
     }
 }
 

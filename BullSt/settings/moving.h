@@ -7,6 +7,7 @@
 class Moving : public Print
 {
 public:
+    int identifier = 0;
     void mover(char tecla)
     {
         int nuevoX = playerX;
@@ -15,23 +16,53 @@ public:
         switch (tecla)
         {
         case 'w':
-            nuevoY--;
+            nuevoY -= 1;
             break;
         case 's':
-            nuevoY++;
+            nuevoY += 1;
             break;
         case 'a':
-            nuevoX--;
+            nuevoX -= 1;
             break;
         case 'd':
-            nuevoX++;
+            nuevoX += 1;
             break;
         }
 
-        if (mapa[nuevoY][nuevoX] != '#')
+        switch (identifier)
         {
-            playerX = nuevoX;
-            playerY = nuevoY;
+        case 0:
+            if (mainMapa[nuevoY][nuevoX] != '#' && mainMapa[nuevoY][nuevoX] != '_' && mainMapa[nuevoY][nuevoX] != '|')
+            {
+                playerX = nuevoX;
+                playerY = nuevoY;
+            }
+
+            if (mainMapa[nuevoY][nuevoX] == '1')
+            {
+                playerX = 3;
+                playerY = 3;
+            }
+
+            if (mainMapa[nuevoY][nuevoX] == '2')
+            {
+                identifier = 2;
+            }
+            break;
+        case 2:
+        {
+            playerX = 3;
+            playerY = 3;
+            if (Mapa2[nuevoY][nuevoX] != '#' && Mapa2[nuevoY][nuevoX] != '_' && Mapa2[nuevoY][nuevoX] != '|')
+            {
+                playerX = nuevoX;
+                playerY = nuevoY;
+            }
+        }
+        break;
+
+        default:
+            break;
         }
     }
 };
